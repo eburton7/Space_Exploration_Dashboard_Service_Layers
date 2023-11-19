@@ -1,0 +1,23 @@
+{
+  "name": "space_exploration_dashboard_service_layers",
+  "version": "1.0.0",
+  "description": "## Description of Application The Space Exploration Dashboard is a web application designed to provide users with the latest updates on space missions, upcoming space-related events, and current space weather conditions. It's tailored for space enthusiasts and professionals alike to stay informed and engaged with the progress of space exploration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
