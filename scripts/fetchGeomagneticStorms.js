@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI);
 
 const fetchData = async () => {
     try {
-        const response = await axios.get(` https://api.nasa.gov/DONKI/GST?startDate=2016-01-01&endDate=2024-01-30&api_key=${process.env.NASA_API_KEY}`);
+        const response = await axios.get(` https://api.nasa.gov/DONKI/GST?startDate=2010-01-01&api_key=${process.env.NASA_API_KEY}`);
         // console.log("API Response:", response.data); 
         return response.data;
     } catch (error) {

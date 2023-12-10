@@ -4,6 +4,43 @@ const GeomagneticStorm = require('../models/GeomagneticStorm');
 const SolarFlare = require('../models/SolarFlare');
 const fetchSatelliteData = require('../scripts/fetchSatellites');
 const fetchEONETEvents = require('../scripts/fetchEONETEvents');
+const fetchElectronFluxAlert = require('../scripts/fetchAlertData'); 
+const fetchNOAA3DayForecast = require('../scripts/fetchForecastedData');
+
+// Route to fetch NOAA 3-day forecast
+router.get('/forecast', async (req, res) => {
+    try {
+        const forecastText = await fetchNOAA3DayForecast();
+        if (!forecastText) {
+            throw new Error('Invalid response format from the SWPC API');
+        }
+        res.send(forecastText);
+    } catch (error) {
+        // Log the error for debugging purposes
+        console.error('Error fetching NOAA 3-day forecast:', error);
+    // Send a user-friendly error message
+        res.status(500).send('Unable to retrieve forecast data at this time');
+    }
+});
+
+// Route to fetch Electron Flux Alerts
+router.get('/electron-flux-alerts', async (req, res) => {
+    try {
+        const alerts = await fetchElectronFluxAlert();
+        if (!Array.isArray(alerts)) {
+            throw new Error('Invalid response format from the SWPC API');
+        }
+        res.json(alerts);
+    } catch (error) {
+        // Log the error for debugging purposes
+        console.error('Error fetching Electron Flux Alert data:', error);
+
+        // Send a user-friendly error message
+        res.status(500).json({ message: 'Unable to retrieve electron flux alerts at this time' });
+    }
+});
+
+
 
 // GET route for fetching solar flare data
 router.get('/solar-flares', async (req, res) => {
