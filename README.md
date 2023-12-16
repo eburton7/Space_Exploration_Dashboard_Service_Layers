@@ -17,11 +17,27 @@ The service layers play a critical role in the application's architecture, provi
 
 Instructions on how to install the Space Exploration Dashboard.
 
-TODO: **ADD INFO**
+Clone the Repository:
+git clone https://github.com/your-username/Space_Exploration_Dashboard_Service_Layers.git
+cd Space_Exploration_Dashboard_Service_Layers
+
+Install Dependencies:
+npm install
+
+Environment Configuration:
+
+Create a .env file in the root of the project.
+Add necessary environment variables like PORT, MONGODB_URI, and NASA API key.
 
 ## Running the Project
 
-TODO: **ADD INFO**
+To run the project locally:
+Start the Server:
+node server.js
+
+Accessing the API:
+
+Once the server is running, you can access the API endpoints via http://localhost:<PORT>, replacing <PORT> with the port number in your .env file.
 
 ## Contributing
 
